@@ -102,14 +102,14 @@ in
               See https://developer.android.com/reference/android/Manifest.permission and note permissions which say
               "not for use by third-party applications".
             '';
-            example = ''[ "INSTALL_PACKAGES" ]'';
+            example = [ "INSTALL_PACKAGES" ];
           };
 
           defaultPermissions = mkOption {
             default = [];
             type = types.listOf types.str;
             description = "Permissions to be enabled by default without user prompting.";
-            example = ''[ "INSTALL_PACKAGES" ]'';
+            example = [ "INSTALL_PACKAGES" ];
           };
 
           partition = mkOption {

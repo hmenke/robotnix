@@ -20,10 +20,10 @@ let
             ${option.description}
 
           '' + optionalString (option ? default) ''
-            Default: `${builtins.toJSON option.default}`
+            Default: `${generators.toPretty { allowPrettyValues = true; } option.default}`
 
           '' + optionalString (option ? example) ''
-            Example: `${builtins.toJSON option.example}`
+            Example: `${generators.toPretty { allowPrettyValues = true; } option.example}`
 
           '' + ''
             Type: ${option.type}
