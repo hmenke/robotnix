@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>F-Droid repositories - Robotnix</title>
+        <title>F-Droid Repositories - Robotnix</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="welcome.html"><strong aria-hidden="true">1.</strong> Welcome to Robotnix</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Tutorials</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ota.html"><strong aria-hidden="true">2.2.</strong> OTA updates</a></li><li class="chapter-item expanded "><a href="f-droid.html" class="active"><strong aria-hidden="true">2.3.</strong> F-Droid repositories</a></li><li class="chapter-item expanded "><a href="attestation.html"><strong aria-hidden="true">2.4.</strong> Remote attestation</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="options.html"><strong aria-hidden="true">3.1.</strong> Options</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="welcome.html"><strong aria-hidden="true">1.</strong> Welcome to Robotnix</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Tutorials</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="ota.html"><strong aria-hidden="true">2.2.</strong> OTA Updates</a></li><li class="chapter-item expanded "><a href="f-droid.html" class="active"><strong aria-hidden="true">2.3.</strong> F-Droid Repositories</a></li><li class="chapter-item expanded "><a href="attestation.html"><strong aria-hidden="true">2.4.</strong> Remote Attestation</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Reference</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="options.html"><strong aria-hidden="true">3.1.</strong> Options</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,19 +165,15 @@
                     <main>
                         <h1><a class="header" href="#adding-f-droid-repositories" id="adding-f-droid-repositories">Adding F-Droid repositories</a></h1>
 <p>F-Droid can manage multiple repositories to fetch apps from.  These can be set
-up manually in the app, but with Robotnix it is also possible to preload
+up manually in the app, but with robotnix it is also possible to preload
 F-Droid with some repositories at build time.</p>
 <p>To add an F-Droid repository you need at least the URL and a public key.
 Obtaining the URL is in general very easy but it's not obvious where to obtain
 the public key.</p>
 <p>We'll take the microG repository as an example.  The repository is located at
 https://microg.org/fdroid/repo.  To obtain the repository index download the
-<code>index.jar</code> file from the repository root:</p>
-<pre><code class="language-console">$ curl -LO https://microg.org/fdroid/repo/index.jar
-</code></pre>
-<p>Java Archives are simply ZIP files with a certain structure, so to get the
-repository index out of this file, we unzip the contained <code>index.xml</code>:</p>
-<pre><code class="language-console">$ unzip index.jar index.xml
+<code>index.xml</code> file from the repository root:</p>
+<pre><code class="language-console">$ curl -LO https://microg.org/fdroid/repo/index.xml
 </code></pre>
 <p>The content of this XML file contains metadata about the repository, including
 the public key:</p>
