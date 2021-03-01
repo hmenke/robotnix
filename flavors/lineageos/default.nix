@@ -46,14 +46,14 @@ let
   filterDirAttrs = dir: filterAttrs (n: v: elem n ["rev" "sha256" "url" "postPatch"]) dir;
   filterDirsAttrs = dirs: mapAttrs (n: v: filterDirAttrs v) dirs;
 
-  LineageOSRelease = "lineage-17.1";
+  LineageOSRelease = "lineage-18.1";
 in mkIf (config.flavor == "lineageos")
 {
-  androidVersion = mkDefault 10;
+  androidVersion = mkDefault 11;
 
   productNamePrefix = "lineage_"; # product names start with "lineage_"
 
-  buildDateTime = mkDefault 1609221930;
+  buildDateTime = mkDefault 1614623709;
 
   # LineageOS uses this by default. If your device supports it, I recommend using variant = "user"
   variant = mkDefault "userdebug";

@@ -6,7 +6,8 @@
 import json
 import urllib.request
 
-BRANCH = "lineage-17.1"
+BRANCH = "lineage-18.1"
+REF = "657efa4959113b10faa78b374c26140f8a180151"
 
 def save(filename, data):
     open(filename, 'w').write(json.dumps(data, sort_keys=True, indent=2, separators=(',', ': ')))
@@ -14,7 +15,7 @@ def save(filename, data):
 def fetch_metadata():
     metadata = {}
 
-    lineage_build_targets_str = urllib.request.urlopen("https://github.com/LineageOS/hudson/raw/master/lineage-build-targets").read().decode()
+    lineage_build_targets_str = urllib.request.urlopen(f"https://github.com/LineageOS/hudson/raw/{REF}/lineage-build-targets").read().decode()
     for line in lineage_build_targets_str.split("\n"):
         line = line.strip()
         if line == "":
@@ -31,7 +32,7 @@ def fetch_metadata():
 
     ###
 
-    devices = json.load(urllib.request.urlopen("https://github.com/LineageOS/hudson/raw/master/updater/devices.json"))
+    devices = json.load(urllib.request.urlopen(f"https://github.com/LineageOS/hudson/raw/{REF}/updater/devices.json"))
     for data in devices:
         if data['model'] not in metadata:
             continue
@@ -46,6 +47,10 @@ def fetch_metadata():
         # Workaround google shamu source tree inconsistency
         if data['model'] == 'shamu':
             vendor = 'moto'
+
+        # Workaround google flox source tree inconsistency
+        if data['model'] == 'flox':
+            vendor = 'asus'
 
         metadata[data['model']].update({
             'vendor': vendor,

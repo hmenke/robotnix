@@ -17,7 +17,7 @@ import urllib.request
 
 LINEAGE_REPO_BASE = "https://github.com/LineageOS"
 VENDOR_REPO_BASE = "https://github.com/TheMuppets"
-BRANCH = "lineage-17.1"
+BRANCH = "lineage-18.1"
 MIRRORS = {}
 
 def save(filename, data):

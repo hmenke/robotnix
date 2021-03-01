@@ -17,7 +17,7 @@ fi
 args=(
     --ref-type branch
     "https://github.com/LineageOS/android"
-    "lineage-17.1"
+    "lineage-18.1"
     ../*/repo-*.json
 )
 
