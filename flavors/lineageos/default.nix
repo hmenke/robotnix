@@ -124,7 +124,7 @@ in mkIf (config.flavor == "lineageos")
   webview.prebuilt.availableByDefault = mkDefault true;
   removedProductPackages = [ "webview" ];
 
-  envPackages = [ pkgs.openssl.dev ]; # Needed by included kernel build for some devices (pioneer at least)
+  envPackages = [ pkgs.gcc.cc pkgs.glibc.dev pkgs.openssl.dev ]; # Needed by included kernel build for some devices (pioneer at least)
 
   envVars.RELEASE_TYPE = mkDefault "EXPERIMENTAL";  # Other options are RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL
 
